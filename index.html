@@ -33,11 +33,11 @@
                 <div class="settings-container">
                     <p>Sand amount</p>
                     <input type="text" inputmode="numeric" value="1000" id="start-sand-slider" oninput="filterNumberInput(this, 10000); sandChanged(); settingChanged()">
-                    <P id="no-effect-sand" class="settings-comment">(too much, no effect on increasing)</P>
+                    <P id="no-effect-sand" class="settings-comment" style="visibility: hidden;">(too much, no effect on increasing)</P>
 
                     <p>Iterations</p>
                     <input type="text" inputmode="numeric" value="700" id="max-iters-slider" oninput="filterNumberInput(this, 10000); itersChanged(); settingChanged()">
-                    <P id="no-effect-iters" class="settings-comment">(too much, no effect on increasing)</P>
+                    <P id="no-effect-iters" class="settings-comment" style="visibility: hidden;">(too much, no effect on increasing)</P>
                 </div>
 
 

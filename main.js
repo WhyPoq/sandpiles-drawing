@@ -199,8 +199,10 @@ function noEffectIters(state){
         noEffectItersCount = 1;
         if(window.innerWidth > 720){
             document.getElementById("no-effect-iters").style.visibility = "visible";
+            document.getElementById("no-effect-iters").style.display = "block";
         }
         else{
+            document.getElementById("no-effect-iters").style.visibility = "visible";
             document.getElementById("no-effect-iters").style.display = "block";
         }
     }
@@ -210,7 +212,7 @@ function noEffectIters(state){
             document.getElementById("no-effect-iters").style.visibility = "hidden";
         }
         else{
-        document.getElementById("no-effect-iters").style.display = "none";
+            document.getElementById("no-effect-iters").style.display = "none";
         }
     }
 }
