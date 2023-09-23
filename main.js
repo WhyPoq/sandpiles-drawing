@@ -197,11 +197,21 @@ function noEffectSand(state){
 function noEffectIters(state){
     if(state){
         noEffectItersCount = 1;
-        document.getElementById("no-effect-iters").style.display = "block";
+        if(window.innerWidth > 720){
+            document.getElementById("no-effect-iters").style.visibility = "visible";
+        }
+        else{
+            document.getElementById("no-effect-iters").style.display = "block";
+        }
     }
     else{
         noEffectItersCount = 0;
+        if(window.innerWidth > 720){
+            document.getElementById("no-effect-iters").style.visibility = "hidden";
+        }
+        else{
         document.getElementById("no-effect-iters").style.display = "none";
+        }
     }
 }
 

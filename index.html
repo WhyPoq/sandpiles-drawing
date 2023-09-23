@@ -16,40 +16,45 @@
     </header>
 
     <main>
-        <div class="canvas-container">
-            <canvas id="drawing-canvas"></canvas>
-        </div>
-        <section>
+        <div class="canvas-div">
+            <div class="canvas-container">
+                <canvas id="drawing-canvas"></canvas>
+            </div>
+
             <div class="generate-random-section">
                 <button class="generate-button" onclick="generateRandom()">Random</button>
             </div>
+        </div>
 
-            <div class="separator"></div>
+        <div class="separator first-phase"></div>
 
-            <div class="settings-container">
-                <p>Sand amount</p>
-                <input type="text" inputmode="numeric" value="1000" id="start-sand-slider" oninput="filterNumberInput(this, 10000); sandChanged(); settingChanged()">
-                <P id="no-effect-sand" class="settings-comment">(too much, no effect on increasing)</P>
+        <div class="right-div">
+            <div class="settings-div">
+                <div class="settings-container">
+                    <p>Sand amount</p>
+                    <input type="text" inputmode="numeric" value="1000" id="start-sand-slider" oninput="filterNumberInput(this, 10000); sandChanged(); settingChanged()">
+                    <P id="no-effect-sand" class="settings-comment">(too much, no effect on increasing)</P>
 
-                <p>Iterations</p>
-                <input type="text" inputmode="numeric" value="700" id="max-iters-slider" oninput="filterNumberInput(this, 10000); itersChanged(); settingChanged()">
-                <P id="no-effect-iters" class="settings-comment">(too much, no effect on increasing)</P>
+                    <p>Iterations</p>
+                    <input type="text" inputmode="numeric" value="700" id="max-iters-slider" oninput="filterNumberInput(this, 10000); itersChanged(); settingChanged()">
+                    <P id="no-effect-iters" class="settings-comment">(too much, no effect on increasing)</P>
+                </div>
+
+
+                <div class="separator"></div>
+
+                <div class="generate-section-container">
+                    <button class="generate-button" onclick="generateButton()">Generate</button>
+
+                    <button class="generate-on-change" onclick="generateOnChangeTick()">
+                        Generate on change
+                        <img id="checkbox-replacement-t" class="checkbox-replacement hide" src="./assets/checkmark.svg"/>
+                        <div id="checkbox-replacement-f" class="checkbox-replacement"></div>
+                    </button>
+                </div>
             </div>
 
-
-            <div class="separator"></div>
-
-            <div class="generate-section-container">
-                <button class="generate-button" onclick="generateButton()">Generate</button>
-
-                <button class="generate-on-change" onclick="generateOnChangeTick()">
-                    Generate on change
-                    <img id="checkbox-replacement-t" class="checkbox-replacement hide" src="./assets/checkmark.svg"/>
-                    <div id="checkbox-replacement-f" class="checkbox-replacement"></div>
-                </button>
-            </div>
-
-            <div class="separator"></div>
+            <div class="separator second-phase"></div>
 
             <div class="colors-section-container">
                 <div>
@@ -95,8 +100,8 @@
                 </div>
 
             </div>
+        </div>
             
-        </section>
     </main>
 
     <script src="canvasDrawing.js"></script>

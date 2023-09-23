@@ -66,6 +66,8 @@ body{
     font-weight: 700;
     letter-spacing: 1rem;
 
+    min-height: 100hv;
+
     color: #4d283e;
     background-color: #FBF4FB;
 }
@@ -101,13 +103,13 @@ canvas{
     height: 100%;
 }
 
-section{
-    margin-top: 30rem;
+.canvas-container{
+    margin-bottom: 30rem;
 }
 
 .settings-container{
     display: grid;
-    grid-template-columns: auto minmax(80rem, 1fr);
+    /* grid-template-columns: auto minmax(80rem, 1fr); */
     row-gap: 5rem;
     column-gap: 30rem;
     align-items: start;
@@ -144,7 +146,7 @@ input[type=number] {
 
 .separator{
     width: 100%;
-    height: 2px;
+    height: 1.5px;
     background-color: #9480ab;
 }
 
@@ -289,7 +291,6 @@ button{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: tomato;
 }
 
 .colors-container input[type="color"]{
@@ -350,6 +351,72 @@ button{
 
 .settings-comment:not(:last-child){
     padding-bottom: 10rem;
+}
+
+
+@media (min-width: 45em){
+    html { overflow-y: scroll; }
+
+    main{
+        display: flex;
+        gap: min(7%, 100rem);
+        padding-top: 30rem;
+    }
+
+    .canvas-div{
+        max-width: 500rem;
+        min-width: 350rem;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
+    .right-div{
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    .settings-div{
+        display: flex;
+        flex-direction: column;
+        gap: 20rem;
+    }
+
+    .settings-container{
+        margin-bottom: 0;
+    }
+
+    .separator.first-phase{
+        display: none;
+    }
+
+    .color-in-scheme-selected{
+        max-width: 50rem;
+    }
+
+    .color-in-scheme{
+        max-width: 40rem;
+    }
+}
+
+@media (min-width: 75em){
+    .right-div{
+        display: flex;
+        gap: 100rem;
+    }
+
+    .separator.second-phase{
+        display: none;
+    }
+
+    .settings-div{
+        flex-grow: 0;
+        flex-basis: 0;
+    }
+
+    .colors-section-container{
+        flex-grow: 1;
+        max-width: 350rem;
+    }
 }
 
 
