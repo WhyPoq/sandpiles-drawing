@@ -141,7 +141,7 @@ input[type=number] {
     width: min(100rem, 100%);
     background-color: #9480ab;
 
-    border-radius: 5rem;
+    border-radius: 2rem; /*5*/
 }
 
 .separator{
@@ -167,7 +167,7 @@ button{
     width: min(300rem, 60%);
     background-color: #6D466B;
 
-    border-radius: 5rem;
+    border-radius: 2rem; /*5*/
 }
 
 .generate-button:hover{
@@ -195,7 +195,7 @@ button{
     width: 30rem;
     height: 30rem;
     background-color: #9480ab;
-    border-radius: 5rem;
+    border-radius: 2rem; /*5*/
 }
 
 .generate-on-change .checkbox-replacement.hide{
@@ -218,6 +218,7 @@ button{
     white-space: nowrap;
 
     width: fit-content;
+    padding: 0;
 
     color: #4d283e;
     background-color: rgba(0, 0, 0, 0);
@@ -229,7 +230,7 @@ button{
     width: 30rem;
     height: 30rem;
     background-color: #9480ab;
-    border-radius: 5rem;
+    border-radius: 2rem; /*5*/
 }
 
 .colors-section-container .dropdown-replacement.hide{
