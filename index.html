@@ -20,16 +20,22 @@
             <canvas id="drawing-canvas"></canvas>
         </div>
         <section>
-            <div class="flex settings-container">
-                <div class="flex-column">
-                    <p>Sand amount</p>
-                    <p>Iterations</p>        
-                </div>
-                <div class="flex-column">
-                    <input type="text" inputmode="numeric" value="1000" id="start-sand-slider" oninput="filterNumberInput(this, 10000); settingChanged()">
-                    <input type="text" inputmode="numeric" value="700" id="max-iters-slider" oninput="filterNumberInput(this, 10000); settingChanged()">
-                </div>
+            <div class="generate-random-section">
+                <button class="generate-button" onclick="generateRandom()">Random</button>
             </div>
+
+            <div class="separator"></div>
+
+            <div class="settings-container">
+                <p>Sand amount</p>
+                <input type="text" inputmode="numeric" value="1000" id="start-sand-slider" oninput="filterNumberInput(this, 10000); sandChanged(); settingChanged()">
+                <P id="no-effect-sand" class="settings-comment">(too much, no effect on increasing)</P>
+
+                <p>Iterations</p>
+                <input type="text" inputmode="numeric" value="700" id="max-iters-slider" oninput="filterNumberInput(this, 10000); itersChanged(); settingChanged()">
+                <P id="no-effect-iters" class="settings-comment">(too much, no effect on increasing)</P>
+            </div>
+
 
             <div class="separator"></div>
 
@@ -57,10 +63,6 @@
                         </div>
                     </button>
                 </div>                        
-                
-                <div style="display: none" id="schemes-list" class="schemes-list">
-                
-                </div>
 
                 <div class="colors-container">
                     <div class="color-in-scheme-selected">
@@ -86,8 +88,12 @@
                             <input class="fit-parent" type="color" id="color-3" onchange ="colorsUpdated(3)" value="#054A91">
                         </div>
                     </div>
-
                 </div>
+
+                <div style="display: none" id="schemes-list" class="schemes-list">
+                
+                </div>
+
             </div>
             
         </section>

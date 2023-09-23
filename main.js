@@ -1,8 +1,10 @@
 colorSchemes = [
-    ["#FAF4D3", "#176164", "#F5C800", "#0C1618"],
-    ["#9480ab", "#FBF4FB", "#6D466B", "#4d283e"],
     ["#DBE4EE", "#81A4CD", "#3E7CB1", "#054A91"],
+    ["#FAF4D3", "#176164", "#F5C800", "#0C1618"],
+    ["#BEABD3", "#FBF4FB", "#6D466B", "#4d283e"],
     ["#FFF5E0", "#FF6969", "#C70039", "#141E46"],
+    ["#F8E44F", "#F94C10", "#C70039", "#900C3F"],
+    ["#F7F1E5", "#E7B10A", "#898121", "#4C4B16"]
 ]
 
 
@@ -14,9 +16,14 @@ let schemesOpenAnim;
 let schemesCloseAnim;
 let curAnimScheme = 0;
 
+let genSand;
+let genIters;
+let noEffectSandAmount = 0;
+let noEffectItersCount = 0;
+
 drawSchemes();
 
-selectColorScheme(colorSchemes[0]);
+selectColorScheme(colorSchemes[0], false);
 
 window.onload = function loaded(){
     startCanvas();
@@ -24,8 +31,8 @@ window.onload = function loaded(){
 }
 
 function generateButton(){
-    let maxIters = document.getElementById("max-iters-slider").value;
     let startSand = document.getElementById("start-sand-slider").value;
+    let maxIters = document.getElementById("max-iters-slider").value;
     generate(startSand, maxIters, selectedColorSceme);
 }
 
@@ -111,12 +118,17 @@ function closeColorsDropdown(){
 function drawSchemes(){
     const schemesList = document.getElementById("schemes-list");
     for(let i = 0; i < colorSchemes.length; i++){
+        const separator = document.createElement("div");
+        separator.classList.add("separator");
+        separator.style.display = "none";
+        schemesList.appendChild(separator);
+
         const colors = colorSchemes[i];
 
         const colorsButton = document.createElement("button");
         colorsButton.classList.add("colors-button");
         colorsButton.style.display = "none";
-        colorsButton.onclick = () => {selectColorScheme(colorSchemes[i])};
+        colorsButton.onclick = () => {selectColorScheme(colorSchemes[i], true)};
 
         const colorsContainer = document.createElement("div");
         colorsContainer.classList.add("colors-container");
@@ -135,22 +147,17 @@ function drawSchemes(){
         }
 
         schemesList.appendChild(colorsButton);
-
-        const separator = document.createElement("div");
-        separator.classList.add("separator");
-        separator.style.display = "none";
-        schemesList.appendChild(separator);
     }
 }
 
-function selectColorScheme(colorScheme){
+function selectColorScheme(colorScheme, redraw){
     selectedColorSceme = []
     for(let i = 0; i < colorScheme.length; i++){
         selectedColorSceme.push(colorScheme[i]);
         document.getElementById("color-" + i).value = colorScheme[i];
     }
 
-    if(canvas != undefined){
+    if(redraw){
         drawGrid();
     }
 }
@@ -161,4 +168,68 @@ function colorsUpdated(colorId){
     drawGrid();
 }
 
+function generateRandom(){
+    const sand = Math.floor(Math.random() * 2000);
+    let iters = Math.floor(Math.random() * 1000);
+    if(Math.random() < 0.4){
+        iters = Math.floor(Math.random() * 500);
+    }
+
+    document.getElementById("start-sand-slider").value = sand;
+    document.getElementById("max-iters-slider").value = iters;
+
+    const newColorSchemeIdx = Math.floor(Math.random() * colorSchemes.length);
+    selectColorScheme(colorSchemes[newColorSchemeIdx], false);
+    generate(sand, iters)
+}
+
+function noEffectSand(state){
+    if(state){
+        noEffectSandAmount = 1;
+        document.getElementById("no-effect-sand").style.visibility = "visible";
+    }
+    else{
+        noEffectSandAmount = 0;
+        document.getElementById("no-effect-sand").style.visibility = "hidden";
+    }
+}
+
+function noEffectIters(state){
+    if(state){
+        noEffectItersCount = 1;
+        document.getElementById("no-effect-iters").style.display = "block";
+    }
+    else{
+        noEffectItersCount = 0;
+        document.getElementById("no-effect-iters").style.display = "none";
+    }
+}
+
+function sandChanged(){
+    if(noEffectSandAmount == 1){
+        if(document.getElementById("start-sand-slider").value < genSand){
+            noEffectSand(false);
+        }
+    }
+
+    if(noEffectItersCount == 1){
+        if(document.getElementById("start-sand-slider").value > genSand){
+            noEffectIters(false);
+        }
+    }
+}
+
+function itersChanged(){
+    if(noEffectItersCount == 1){
+        if(document.getElementById("max-iters-slider").value < genIters){
+            noEffectIters(false);
+        }
+    }
+
+    if(noEffectSandAmount == 1){
+        if(document.getElementById("max-iters-slider").value > genIters){
+            noEffectSand(false);
+        }
+    }
+}
 

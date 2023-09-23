@@ -50,7 +50,6 @@ let w;
 let h;
 
 let side;
-let colorScheme;
 
 let curPiles = []
 let touchedPiles = []
@@ -74,10 +73,12 @@ function startCanvas() {
     setup(W_COUNT);
 }
 
-function generate(startSand, maxIters, colors){
+function generate(startSand, maxIters){
+    genSand = startSand;
+    genIters = maxIters;
+
     clearPiles();
 
-    colorScheme = colors;
     pourSand(startSand);
     compute(maxIters);
 
@@ -119,6 +120,8 @@ function setup(wCount) {
 
 function drawGrid() {
     canvas.style.backgroundColor = selectedColorSceme[0];
+    fill(selectedColorSceme[0]);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     offsetX = (width - ((w - 1) * xStep + side)) / 2.0 + side / 2.0;
     offsetY = (height - h * yStep) / 2.0 + side * sqrt(3) / 3.0;
@@ -152,27 +155,19 @@ function pourSand(startSand) {
 }
 
 function compute(iters) {
-    noEffectSand("hidden");
-    noEffectIters("hidden");
+    noEffectSand(false);
+    noEffectIters(false);
     
     for (let i = 0; i < iters; i++) {
         if(updated.length == 0){
-            noEffectIters("visible");
+            noEffectIters(true);
             break;
         }
         colapse();
     }
     if(curPiles[Math.floor(w / 2)][Math.floor(h / 2)] > 3){
-        noEffectSand("visible");
+        noEffectSand(true);
     }
-}
-
-function noEffectSand(state){
-    //document.getElementById("no-effect-sand").style.visibility = state;
-}
-
-function noEffectIters(state){
-    //document.getElementById("no-effect-iters").style.visibility = state;
 }
 
 function touch(x, y, touched) {
