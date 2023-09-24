@@ -35,7 +35,7 @@ input{
 }
 
 html{
-    font-size: 6.25%;
+    font-size: 62.5%;
 	-moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
@@ -64,9 +64,9 @@ html{
 
 body{
     font-family: 'Roboto', sans-serif;
-    font-size: 24rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    letter-spacing: 1rem;
+    letter-spacing: 0.1rem;
 
     min-height: 100hv;
 
@@ -76,7 +76,7 @@ body{
 
 header{
     background-color: #9480ab;
-    height: 40rem;
+    height: 4rem;
 }
 
 main{
@@ -106,19 +106,19 @@ canvas{
 }
 
 .canvas-container{
-    margin-bottom: 30rem;
+    margin-bottom: 3rem;
 }
 
 .settings-container{
     display: grid;
-    /* grid-template-columns: auto minmax(80rem, 1fr); */
-    row-gap: 5rem;
-    column-gap: 30rem;
+    /* grid-template-columns: auto minmax(8rem, 1fr); */
+    row-gap: 0.5rem;
+    column-gap: 3rem;
     align-items: start;
     align-content: start;
     white-space: nowrap;
 
-    margin: 20rem 0;
+    margin: 2rem 0;
 }
 
 
@@ -136,14 +136,14 @@ input[type=number] {
 }
 
 .settings-container input{
-    font-size: 18rem;
+    font-size: 1.8rem;
     color:#FBF4FB;
 
-    padding: 5rem;
-    width: min(100rem, 100%);
+    padding: 0.5rem;
+    width: min(10rem, 100%);
     background-color: #9480ab;
 
-    border-radius: 2rem; /*5*/
+    border-radius: 0.2rem; /*5*/
 }
 
 .separator{
@@ -156,20 +156,20 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10rem;
+    gap: 1rem;
 
-    margin: 20rem 0;
+    margin: 2rem 0;
 }
 
 button{
-    font-size: 24rem;
+    font-size: 2.4rem;
     color:#FBF4FB;
 
-    padding: 10rem;
-    width: min(300rem, 60%);
+    padding: 1rem;
+    width: min(30rem, 60%);
     background-color: #6D466B;
 
-    border-radius: 2rem; /*5*/
+    border-radius: 0.2rem; /*5*/
 }
 
 .generate-button:hover{
@@ -180,9 +180,9 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10rem;
+    gap: 1rem;
 
-    font-size: 20rem;
+    font-size: 2rem;
 
     white-space: nowrap;
     width: fit-content;
@@ -192,12 +192,12 @@ button{
 }
 
 .generate-on-change .checkbox-replacement{
-    padding: 5rem;
+    padding: 0.5rem;
 
-    width: 30rem;
-    height: 30rem;
+    width: 3rem;
+    height: 3rem;
     background-color: #9480ab;
-    border-radius: 2rem; /*5*/
+    border-radius: 0.2rem; /*5*/
 }
 
 .generate-on-change .checkbox-replacement.hide{
@@ -208,14 +208,14 @@ button{
 .colors-section-container{
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 1rem;
 
-    margin: 20rem 0;
+    margin: 2rem 0;
 }
 
 .dropdown-button{
     display: flex;
-    gap: 20rem;
+    gap: 2rem;
 
     white-space: nowrap;
 
@@ -227,12 +227,12 @@ button{
 }
 
 .colors-section-container .dropdown-replacement{
-    padding: 5rem;
+    padding: 0.5rem;
 
-    width: 30rem;
-    height: 30rem;
+    width: 3rem;
+    height: 3rem;
     background-color: #9480ab;
-    border-radius: 2rem; /*5*/
+    border-radius: 0.2rem; /*5*/
 }
 
 .colors-section-container .dropdown-replacement.hide{
@@ -261,9 +261,9 @@ button{
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 10rem;
+    gap: 1rem;
 
-    width: min(400rem, 100%);
+    width: min(40rem, 100%);
 }
 
 .color-in-scheme, .color-in-scheme-selected{
@@ -273,11 +273,11 @@ button{
 }
 
 .color-in-scheme{
-    max-width: 50rem;
+    max-width: 5rem;
 }
 
 .color-in-scheme-selected{
-    max-width: 70rem;
+    max-width: 7rem;
 }
 
 .square{   
@@ -309,20 +309,20 @@ button{
 
 .colors-container input[type="color"]::-webkit-color-swatch {
     border: 2px #9480ab solid;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
 }
 .colors-container input[type="color"]::-moz-color-swatch {
     border: 2px #9480ab solid;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
 }
 
 .schemes-list{
     display: flex;
     flex-direction: column;
-    gap: 20rem;
+    gap: 2rem;
 
-    padding-left: 30rem;
-    margin-bottom: 20rem;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
 }
 
 .schemes-list .colors-button{
@@ -342,18 +342,18 @@ button{
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 20rem;
+    margin-bottom: 2rem;
 }
 
 .settings-comment{
-    font-size: 14rem;
+    font-size: 1.4rem;
     opacity: 0.9;
     white-space: pre-line;
     grid-column: span 2;
 }
 
 .settings-comment:not(:last-child){
-    padding-bottom: 10rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -362,13 +362,13 @@ button{
 
     main{
         display: flex;
-        gap: min(7%, 100rem);
-        padding-top: 30rem;
+        gap: min(7%, 10rem);
+        padding-top: 3rem;
     }
 
     .canvas-div{
-        max-width: 500rem;
-        min-width: 350rem;
+        max-width: 50rem;
+        min-width: 35rem;
         flex-grow: 1;
         flex-shrink: 0;
     }
@@ -381,7 +381,7 @@ button{
     .settings-div{
         display: flex;
         flex-direction: column;
-        gap: 20rem;
+        gap: 2rem;
     }
 
     .settings-container{
@@ -393,18 +393,18 @@ button{
     }
 
     .color-in-scheme-selected{
-        max-width: 50rem;
+        max-width: 5rem;
     }
 
     .color-in-scheme{
-        max-width: 40rem;
+        max-width: 4rem;
     }
 }
 
 @media (min-width: 75em){
     .right-div{
         display: flex;
-        gap: 100rem;
+        gap: 10rem;
     }
 
     .separator.second-phase{
@@ -418,7 +418,7 @@ button{
 
     .colors-section-container{
         flex-grow: 1;
-        max-width: 350rem;
+        max-width: 35rem;
     }
 }
 
